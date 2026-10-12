@@ -19,20 +19,16 @@ const text = document.getElementById("text");
 
 async function load() {
     try {
-        text.textContent = "Starting...";
+        text.textContent = "Loading MediaPipe...";
 
-        console.log("1. Starting MediaPipe");
-
-        console.log("2. Calling startTracking()");
         await startTracking(camera);
-        console.log("3. startTracking() finished");
 
         text.textContent = "Tracking active!";
-        update();
 
+        update();
     } catch (error) {
         text.textContent = "Error: " + error.message;
-        console.error("MediaPipe error:", error);
+        console.error(error);
     }
 }
 
